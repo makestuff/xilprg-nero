@@ -1,0 +1,5 @@
+A fork of Zoltán Csizmadia's xilprg, supporting NeroJTAG (see http://www.makestuff.eu/wordpress/?page_id=1046).
+Because xilprg is not getting updates for new FPGA families, I recommend using FPGALink
+(http://www.makestuff.eu/wordpress/?page_id=1400) instead of xilprg, because FPGALink uses .xsvf
+files instead of attempting direct support for .bit files, and will thus work for all future FPGA
+families.
