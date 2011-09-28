@@ -43,6 +43,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 #include <string>
 #include <libnero.h>
+#include <libsync.h>
 #include <libusbwrap.h>
 #include <liberror.h>
 #include <usb.h>
@@ -85,6 +86,11 @@ int nero::open() {
 	const char *error;
 	usbInitialise();
 	if ( usbOpenDeviceVP(m_vidpid.c_str(), 1, 0, 0, &m_devicePtr, &error) ) {
+		nero_exception ex(error);
+		errFree(error);
+		throw ex;
+	}
+	if ( syncBulkEndpoints(m_devicePtr, SYNC_24, &error) ) {
 		nero_exception ex(error);
 		errFree(error);
 		throw ex;

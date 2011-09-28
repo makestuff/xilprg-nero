@@ -369,7 +369,7 @@ int main(int argc, char *argv[]) {
 		if ( scanOpt->count ) {
 			process_command_line("detect");
 		} else {
-			sprintf(line, "program %du \"%s\"", devNum, bitFile);
+			sprintf(line, "program %d \"%s\"", devNum, bitFile);
 			process_command_line(line);
 		}
 	}
